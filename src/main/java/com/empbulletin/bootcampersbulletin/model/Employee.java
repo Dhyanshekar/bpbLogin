@@ -21,8 +21,8 @@ public class Employee {
 	@Column(name = "emp_mail")
 	private String emp_mail;
 
-	@Column(name = "password_hash")
-	private String passwordHash;
+	@Column(name = "password")
+	private String password;
 
 	@Column(name = "batchNo")
 	private Integer batchNo;
@@ -34,13 +34,8 @@ public class Employee {
 		this.emp_id = emp_id;
 		this.emp_name = emp_name;
 		this.emp_mail = emp_mail;
-		setPassword(password);
+		this.password = password;
 		this.batchNo = batchNo;
 	}
 
-	public void setPassword(String password) {
-		this.passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
-	}
-
-	// getters and setters
 }
